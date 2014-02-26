@@ -31,7 +31,7 @@
 
     <section id="main">
         {{outlet}}
-    <input type="checkbox" id="toggle-all">
+        {{input type="checkbox" id="toggle-all" checked=allAreDone}}
     </section>
 
     <footer id="footer">
@@ -48,9 +48,12 @@
         {{#link-to 'todos.completed' activeClass="selected"}}Completed{{/link-to}}    </li>
     </ul>
 
-    <button id="clear-completed">
-    Clear completed (1)
-    </button>
+    {{#if hasCompleted}}
+            <button id="clear-completed" {{action "clearCompleted"}}>
+            Clear completed ({{completed}})
+            </button>
+    {{/if}}
+
     </footer>
     </section>
     </script>
@@ -62,7 +65,7 @@
     <!-- ... additional lines truncated for brevity ... -->
     <script src="js/libs/jquery-1.10.2.min.js"></script>
     <script src="js/libs/handlebars-1.0.0.js"></script>
-    <script src="js/libs/ember.js"></script>
+    <script src="js/libs/ember.min.js"></script>
     <script src="js/libs/ember-data.js"></script>
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
